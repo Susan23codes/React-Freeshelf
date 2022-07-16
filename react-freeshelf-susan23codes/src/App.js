@@ -87,9 +87,9 @@ const booklist = [
 function App() {
   return (
     <>
-      <h1>Freeshelf!</h1>
-      {booklist.map((book) => (
-        <Book book={book} />))}
+      <h1 className="title is-1 freeshelf">Freeshelf!</h1>
+      {booklist.map((book, idx) => (
+        <Book book={book} key={idx} />))}
     </>
   );
 }

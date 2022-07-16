@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { ChevronDownIcon, ChevronRightIcon } from '@primer/octicons-react'
 
 
 
@@ -7,24 +8,53 @@ export default function Book(props) {
     return (
         <>
             <div className="book_card">
-                <h2>{props.book.title}</h2>
-                <p>by {props.book.author}</p>
-                <p>{props.book.shortDescription}</p>
-                <img className="cover_art"
-                    src={props.book.coverImageUrl ? props.book.coverImageUrl : "default_book_cover.jpeg"} alt="" /> <br />
-                <button  onClick={() => setExpanded(!expanded)}>
-                    {expanded ? 'Show Less' : 'Show More'}
-                </button>
-                {expanded ? (
-                    <>
-                        <p>URL: <a href={props.book.url}>Link to the book</a></p>
-                        <p>Publisher: {props.book.publisher ? props.book.publisher : 'No data available'}</p>
-                        <p>Publication Date: {props.book.publicationDate ? props.book.publicationDate : 'No data available'}</p>
-                        <p>Detailed Description: {props.book.detailedDescription}</p>
-                    </>
-                ) : (
-                    ''
-                )}
+                <div className="book_card_info">
+                    <h2 className="book_title">{props.book.title}</h2>
+                    <p className="author">by {props.book.author}</p>
+                    <p className="short_description"><strong>Short Description: </strong>
+                        {props.book.shortDescription}</p>
+                    {/* <button className="button is-info is-outlined" type="button" aria-expanded=
+                        {expanded} aria-controls="id_long_desc" onClick=
+                        {() => setExpanded(!expanded)}>
+                        {expanded ? 'Show Less' : 'Show More'}
+                    </button> */}
+                    {expanded ? (
+                        <>
+                            <div
+                                className="disclosure-control"
+                                role="button"
+                                aria-expanded={expanded}
+                                onClick={() => setExpanded(!expanded)}
+                            >
+                                <ChevronRightIcon size={24} aria-label="Show less" />
+                                <span>Show less</span>
+                            </div>
+                            <p className="url"><strong>URL:</strong> <a href={
+                                props.book.url}>Link to the book</a></p>
+                            <p><strong>Publisher:</strong> {
+                                props.book.publisher ? props.book.publisher : 'No data available'}</p>
+                            <p><strong>Publication Date:</strong> {
+                                props.book.publicationDate ? props.book.publicationDate : 'No data available'}</p>
+                            <p><strong>Detailed Description:</strong> {
+                                props.book.detailedDescription}</p>
+                        </>
+                    ) : (
+                        <div
+                        className="disclosure-control"
+                        role="button"
+                        aria-expanded={expanded}
+                        onClick={() => setExpanded(!expanded)}
+                      >
+                        <ChevronDownIcon size={24} aria-label="Show more" />
+                        <span>Show more</span>
+                      </div>
+                    )}
+                </div>
+                <div>
+                    <img className="cover_art"
+                        src={props.book.coverImageUrl ? props.book.coverImageUrl :
+                            "default_book_cover.jpeg"} alt="Book cover" /> <br />
+                </div>
             </div>
         </>
     )

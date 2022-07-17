@@ -4,11 +4,11 @@
   font-size: 30px;
   padding-bottom: 10px;
   font-weight: bold;
-  color: #005900;
-  background: #FFFCA8;
-  text-shadow: #FFFCA8 2px 2px 0px, #9C9C9C 4px 4px 0px;
-  color: 004200;
-  background-color:rgb(247, 247, 235);
+  color: #FFFFFF;
+  /* background: #996D6D; */
+  text-shadow: #474747 1px 2px 1px;
+  color: #311D94
+  /* background: #996D6D; */
   
 
 }

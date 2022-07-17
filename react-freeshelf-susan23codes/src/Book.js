@@ -1,10 +1,25 @@
 import { useState } from "react"
 import { ChevronDownIcon, ChevronRightIcon } from '@primer/octicons-react'
-
+import styled from 'styled-components'
+import useMeasure from 'react-use-measure'
+import {useSpring, animated} from 'react-spring' 
 
 
 export default function Book(props) {
     const [expanded, setExpanded] = useState(false)
+
+    const BookDetail = styled(animated.div)`
+        overflow: hidden;
+    `
+    const [ref, bounds] = useMeasure()
+
+    const bookDetailAnimatedStyle = useSpring({
+        // 3
+        height: expanded ? bounds.height : 0
+      })
+
+
+
     return (
         <>
             <div className="book_card">
@@ -19,7 +34,6 @@ export default function Book(props) {
                         {expanded ? 'Show Less' : 'Show More'}
                     </button> */}
                     {expanded ? (
-                        <>
                             <div
                                 className="disclosure-control"
                                 role="button"
@@ -28,7 +42,20 @@ export default function Book(props) {
                             >
                                 <ChevronRightIcon size={24} aria-label="Show less" />
                                 <span>Show less</span>
-                            </div>
+                            </div> ) : (
+                                <div
+                                className="disclosure-control"
+                                role="button"
+                                aria-expanded={expanded}
+                                onClick={() => setExpanded(!expanded)}
+                                >
+                                <ChevronDownIcon size={24} aria-label="Show more" />
+                                <span>Show more</span>
+                                </div>
+                            )
+                    }
+                    <BookDetail style={bookDetailAnimatedStyle}>
+                        <div ref={ref}>
                             <p className="url"><strong>URL:</strong> <a href={
                                 props.book.url}>Link to the book</a></p>
                             <p><strong>Publisher:</strong> {
@@ -37,18 +64,9 @@ export default function Book(props) {
                                 props.book.publicationDate ? props.book.publicationDate : 'No data available'}</p>
                             <p><strong>Detailed Description:</strong> {
                                 props.book.detailedDescription}</p>
-                        </>
-                    ) : (
-                        <div
-                        className="disclosure-control"
-                        role="button"
-                        aria-expanded={expanded}
-                        onClick={() => setExpanded(!expanded)}
-                      >
-                        <ChevronDownIcon size={24} aria-label="Show more" />
-                        <span>Show more</span>
-                      </div>
-                    )}
+                        </div>
+                    </BookDetail>
+
                 </div>
                 <div>
                     {/* <img className="cover_art"

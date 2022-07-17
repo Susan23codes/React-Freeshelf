@@ -51,9 +51,12 @@ export default function Book(props) {
                     )}
                 </div>
                 <div>
-                    <img className="cover_art"
+                    {/* <img className="cover_art"
                         src={props.book.coverImageUrl ? props.book.coverImageUrl :
-                            "default_book_cover.jpeg"} alt="Book cover" /> <br />
+                            "default_book_cover.jpeg"} alt="Book cover" /> <br /> */}
+                    <img className="cover_art"
+                        src={props.book.coverImageUrl} 
+                        onError={(e) => e.target.src = "default_book_cover.jpeg"} alt="Book cover" /> <br />
                 </div>
             </div>
         </>

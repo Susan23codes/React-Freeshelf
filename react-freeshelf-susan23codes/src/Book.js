@@ -19,43 +19,41 @@ export default function Book(props) {
                         {expanded ? 'Show Less' : 'Show More'}
                     </button> */}
                     {expanded ? (
-                        <>
-                            <div
-                                className="disclosure-control"
-                                role="button"
-                                aria-expanded={expanded}
-                                onClick={() => setExpanded(!expanded)}
-                            >
-                                <ChevronRightIcon size={24} aria-label="Show less" />
-                                <span>Show less</span>
-                            </div>
-                            <p className="url"><strong>URL:</strong> <a href={
-                                props.book.url}>Link to the book</a></p>
-                            <p><strong>Publisher:</strong> {
-                                props.book.publisher ? props.book.publisher : 'No data available'}</p>
-                            <p><strong>Publication Date:</strong> {
-                                props.book.publicationDate ? props.book.publicationDate : 'No data available'}</p>
-                            <p><strong>Detailed Description:</strong> {
-                                props.book.detailedDescription}</p>
-                        </>
+                        <div
+                            className="disclosure-control"
+                            role="button"
+                            aria-expanded={expanded}
+                            onClick={() => setExpanded(!expanded)}
+                        >
+                            <ChevronRightIcon size={24} aria-label="Show less" />
+                            <span>Show less</span>
+                        </div>
                     ) : (
                         <div
-                        className="disclosure-control"
-                        role="button"
-                        aria-expanded={expanded}
-                        onClick={() => setExpanded(!expanded)}
-                      >
-                        <ChevronDownIcon size={24} aria-label="Show more" />
-                        <span>Show more</span>
-                      </div>
+                            className="disclosure-control"
+                            role="button"
+                            aria-expanded={expanded}
+                            onClick={() => setExpanded(!expanded)}
+                        >
+                            <ChevronDownIcon size={24} aria-label="Show more" />
+                            <span>Show more</span>
+                        </div>
                     )}
+                    <p className="url"><strong>URL:</strong> <a href={
+                        props.book.url}>Link to the book</a></p>
+                    <p><strong>Publisher:</strong> {
+                        props.book.publisher ? props.book.publisher : 'No data available'}</p>
+                    <p><strong>Publication Date:</strong> {
+                        props.book.publicationDate ? props.book.publicationDate : 'No data available'}</p>
+                    <p><strong>Detailed Description:</strong> {
+                        props.book.detailedDescription}</p>
                 </div>
                 <div>
                     {/* <img className="cover_art"
                         src={props.book.coverImageUrl ? props.book.coverImageUrl :
                             "default_book_cover.jpeg"} alt="Book cover" /> <br /> */}
                     <img className="cover_art"
-                        src={props.book.coverImageUrl} 
+                        src={props.book.coverImageUrl}
                         onError={(e) => e.target.src = "default_book_cover.jpeg"} alt="Book cover" /> <br />
                 </div>
             </div>

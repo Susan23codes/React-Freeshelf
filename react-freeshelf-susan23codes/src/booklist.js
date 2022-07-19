@@ -1,4 +1,4 @@
-export const booklist = [
+const booklist = [
   {
     "title": "You Don't Know JS Yet: Getting Started",
     "author": "Kyle Simpson",
@@ -24,7 +24,7 @@ export const booklist = [
     "author": "Caleb Doxsy",
     "url": "http://www.golang-book.com/books/intro",
     "shortDescription": "This book will teach you how to write computer programs using a programming language designed by Google named Go.",
-    "coverImageUrl": "http://www.golang-book.com/public/img/intro/cover.4194045234.png",
+    "coverImageUrl": "https://www.golang-book.com/public/img/intro/cover.png",
     "publisher": null,
     "publicationDate": "2012",
     "detailedDescription": "Computer programming is the art, craft and science of writing programs which define how computers operate. This book will teach you how to write computer programs using a programming language designed by Google named Go. Go is a general purpose programming language with advanced features and a clean syntax. Because of its wide availability on a variety of platforms, its robust well-documented common library, and its focus on good software engineering principles, Go is an ideal language to learn as your first programming language."
@@ -80,3 +80,5 @@ export const booklist = [
     "detailedDescription": "Structure and Interpretation of Computer Programs has had a dramatic impact on computer science curricula over the past decade. This long-awaited revision contains changes throughout the text. There are new implementations of most of the major programming systems in the book, including the interpreters and compilers, and the authors have incorporated many small changes that reflect their experience teaching the course at MIT since the first edition was published. A new theme has been introduced that emphasizes the central role played by different approaches to dealing with time in computational models: objects with state, concurrent programming, functional programming and lazy evaluation, and nondeterministic programming. There are new example sections on higher-order procedures in graphics and on applications of stream processing in numerical programming, and many new exercises. In addition, all the programs have been reworked to run in any Scheme implementation that adheres to the IEEE standard."
   }
 ]
+
+export default booklist

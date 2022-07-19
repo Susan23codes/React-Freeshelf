@@ -15,7 +15,7 @@ export default function Book(props) {
     const [ref, bounds] = useMeasure()
 
     const bookContentAnimatedStyle = useSpring({
-            height: expanded ? bounds.height : 0
+            height: expanded ? bounds.height : 0,
           })
 
     const BookContentInner = styled.div``
